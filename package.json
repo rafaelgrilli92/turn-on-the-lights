@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "npm start": "node server",
-    "npm run prod": "NODE_ENV=production node server"
+    "prod": "NODE_ENV=production node server"
   },
   "repository": {
     "type": "git",
