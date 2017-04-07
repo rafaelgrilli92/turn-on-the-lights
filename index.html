@@ -1,10 +1,47 @@
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>Turn on the light</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .jumbotron {
+            background: #fff;
+            padding: 10px;
+        }
+
+        body {
+            background-color: #fdf4f7;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+    </style>
 </head>
 <body>
-	<button id="switch">Switch</button>
+    <div class="jumbotron">
+      <div class="container text-center">
+        <img src="logo.png" style="height:20vh"/>
+      </div>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <input id="greenLedNum" type="number" class="form-control" placeholder="PIN Number" /><br />
+            <a id="greenLedBtn" href="#greenLedNum" class="btn btn-success btn-lg btn-block">ON</a>
+        </div>
+        <hr />
+        <div class="form-group">
+            <input id="redLedNum" type="number" class="form-control" placeholder="PIN Number" /><br />
+            <a id="redLedBtn" href="#redLedNum" class="btn btn-danger btn-lg btn-block">ON</a>
+        </div>
+        <hr />
+        <div class="form-group">
+            <input id="yellowLedNum" type="number" class="form-control" placeholder="PIN Number" /><br />
+            <a id="yellowLedBtn" href="#yellowLedNum" class="btn btn-warning btn-lg btn-block">ON</a>
+        </div>
+    </div>
 </body>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -12,9 +49,11 @@
   crossorigin="anonymous">
 </script>
 <script>
-	$('#switch').on('click', function(e) {
+	$('.btn').on('click', function(e) {
 		e.preventDefault();
-		$.get("/toggle", function(res) {
+        var id = $(this).attr('href');
+        var pinNumber = $(id).val();
+		$.get("/toggleLed", { pinNumber: pinNumber }, function(res) {
 			console.log(res)
 		});
 	});
