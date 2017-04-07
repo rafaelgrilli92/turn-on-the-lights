@@ -2,9 +2,9 @@
   "name": "turn-on-the-lights",
   "version": "1.0.0",
   "description": "A simple project to test some IoT skills",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "npm start": "node server"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/rafaelgrilli92/turn-on-the-lights/issues"
   },
-  "homepage": "https://github.com/rafaelgrilli92/turn-on-the-lights#readme"
+  "homepage": "https://github.com/rafaelgrilli92/turn-on-the-lights#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "onoff": "^1.1.2"
+  }
 }
