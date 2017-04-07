@@ -51,10 +51,12 @@
 <script>
 	$('.btn').on('click', function(e) {
 		e.preventDefault();
+        var btn = $(this);
         var id = $(this).attr('href');
         var pinNumber = $(id).val();
 		$.get("/toggleLed", { pinNumber: pinNumber }, function(res) {
-			console.log(res)
+            $(btn).text(res);
+			console.log(res);
 		});
 	});
 </script>
