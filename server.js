@@ -9,8 +9,8 @@ app.get('/', function(req, res) {
 
 if (process.env.NODE_ENV === 'production') {
     var GPIOs = {};
-    var Gpio = onoff.Gpio;
     var onoff = require('onoff');
+    var Gpio = onoff.Gpio;
 
     app.get('/toggleLed', function(req, res) {
         var pinNumber = req.query.pinNumber;
